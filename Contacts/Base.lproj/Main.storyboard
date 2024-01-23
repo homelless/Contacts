@@ -17,27 +17,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-ft-Ep9">
-                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="cQy-5h-Oa7"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="O2r-3j-2xR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Z4e-4p-nwp"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgp-sm-ELy">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="irF-8O-xUb"/>
+                                    <barButtonItem title="Создать контакт" id="Ls0-58-Mg6">
+                                        <connections>
+                                            <action selector="showNewContactAlert" destination="BYZ-38-t0r" id="V2z-Q5-hjx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lDt-ft-Ep9" secondAttribute="bottom" id="6vl-3C-Jqm"/>
                             <constraint firstItem="lDt-ft-Ep9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="A6v-oT-ngW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kgp-sm-ELy" secondAttribute="bottom" id="BUE-80-jIH"/>
+                            <constraint firstItem="kgp-sm-ELy" firstAttribute="top" secondItem="lDt-ft-Ep9" secondAttribute="bottom" id="YUY-p7-4Fo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lDt-ft-Ep9" secondAttribute="trailing" id="bZA-kJ-wLw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgp-sm-ELy" secondAttribute="trailing" id="dAK-to-Uqe"/>
                             <constraint firstItem="lDt-ft-Ep9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hec-Uc-F3L"/>
+                            <constraint firstItem="kgp-sm-ELy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pPn-Ln-q8h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="lDt-ft-Ep9" id="o5d-1F-zd6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="4"/>
+            <point key="canvasLocation" x="20.289855072463769" y="3.3482142857142856"/>
         </scene>
     </scenes>
     <resources>

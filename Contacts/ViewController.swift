@@ -9,7 +9,55 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var contacts = [ContactProtocol]()
+    @IBOutlet var tableView: UITableView!
+    
+    @IBAction func showNewContactAlert() {
+        //создание Alert Controller
+        let alertController = UIAlertController(title: "Создайте новый контакт", message: "Введите имя и телефон", preferredStyle: .alert)
+        
+        //добавляем первое текстовое поле в Alert Controller
+        alertController.addTextField { textField in
+            textField.placeholder = "Имя"
+        }
+        
+        //добавялем второй текстовое поле в Alert Controller
+        alertController.addTextField { textField in
+            textField.placeholder = "Номер телефона"
+        }
+        
+        //создаем кнопки
+        //кнопка создания контакта
+        let createButton = UIAlertAction(title: "Создать", style: .default) {
+            _ in
+            guard let contactName = alertController.textFields?[0].text, 
+                let contactPhone = alertController.textFields?[1].text
+            else {
+                return
+            }
+            
+            // создаем новый контакт
+            let contact = Contact(title: contactName, phone: contactPhone)
+            self.contacts.append(contact)
+            self.tableView.reloadData()
+        }
+        //кнопка отмены
+        let cancelButton = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
+        
+        // добавляем кнопки в Alert Controller
+        alertController.addAction(cancelButton)
+        alertController.addAction(createButton)
+        
+        //отображаем Alert Controller
+        self.present(alertController, animated: true, completion: nil)
+
+    }
+    
+    
+    private var contacts: [ContactProtocol] = [] {
+        didSet {
+            contacts.sort{  $0.title < $1.title}
+        }
+    }
     //...
     
     
@@ -20,7 +68,6 @@ class ViewController: UIViewController {
         Contact(title: "Владимир Анатольевич", phone: "+781213342321"))
         contacts.append(
             Contact(title: "Сильвестр", phone: "+7000911112"))
-        contacts.sort{  $0.title < $1.title}
     }
     
     
